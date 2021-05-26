@@ -5,6 +5,12 @@ Mateus Malicheski de Souza
 Após Baixar todas as necessidades no terminal coloco um cd para a pasta de destino no meu pc dos scripts "cd C:\Users\Pichau\Documents\GitHub\N2_Rajis\N2_Edinilson" 
 Então após isso escrevo "npm install" e instale as dependencias, por precaução "npm install dotenv", "npm install express", "npm install mongoose", "npm install nodemon". 
 
+Entre no seu MongoDB Atlas, crie um cluster conecte ele ao seu pc. 
+
+Se está com duvidas de como conectar, veja: https://www.youtube.com/watch?v=BmrkiIRdZ2U
+
+Este vídeo me salvou bastante
+
 Então abro o postman usando a url "http://localhost:3000/"
 
 
