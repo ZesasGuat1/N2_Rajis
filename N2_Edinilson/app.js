@@ -1,8 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
-const User = require("./model/user");
-const Room = require("./model/room");
+const User = require("./modelos/usuario");
+const Room = require("./modelos/sala");
 
 require("dotenv/config");
 
@@ -19,8 +18,6 @@ app.get("/usuario", async (req, res) => {
     res.json({ message: err });
   }
 });
-
-
 app.post("/criar_user", async (req, res) => {
   const user = new User({
     nome: req.body.nome,
@@ -34,8 +31,6 @@ app.post("/criar_user", async (req, res) => {
     res.json({ message: err });
   }
 });
-
-
 app.get("/usuario/:nome", async (req, res) => {
   try {
     const user = await User.findOne({ nome: req.params.nome });
@@ -44,8 +39,6 @@ app.get("/usuario/:nome", async (req, res) => {
     res.json({ message: err });
   }
 });
-
-
 app.delete("/usuario/:idUsuario", async (req, res) => {
   try {
     const removeUser = await User.remove({ _id: req.params.idUsuario });
@@ -54,8 +47,6 @@ app.delete("/usuario/:idUsuario", async (req, res) => {
     res.json({ message: err });
   }
 });
-
-
 app.get("/sala", async (req, res) => {
   try {
     const rooms = await Room.find();
@@ -64,14 +55,11 @@ app.get("/sala", async (req, res) => {
     res.json({ message: err });
   }
 });
-
-
 app.post("/criar_salas", async (req, res) => {
   const room = new Room({
     nome: req.body.nome,
     lotacao: req.body.lotacao,
   });
-
   try {
     const savedroom = await room.save();
     res.json(savedroom);
@@ -79,7 +67,6 @@ app.post("/criar_salas", async (req, res) => {
     res.json({ message: err });
   }
 });
-
 app.get("/sala/:salaid", async (req, res) => {
   try {
     const room = await Room.findById(req.params.salaid);
@@ -88,8 +75,6 @@ app.get("/sala/:salaid", async (req, res) => {
     res.json({ message: err });
   }
 });
-
-
 app.patch("/sala/:salaid", async (req, res) => {
   try {
     const updatedRoom = await Room.updateOne(
@@ -109,7 +94,6 @@ mongoose.connect(
     console.log("connected to database");
   }
 );
-
 app.listen(3000, () => {
   console.log("listening to 3000");
 });

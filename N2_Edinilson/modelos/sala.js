@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const Room = new mongoose.Schema({
   nome: {
     type: String,
@@ -10,5 +9,4 @@ const Room = new mongoose.Schema({
     required: true,
   },
 });
-
 module.exports = mongoose.model("room", Room);
